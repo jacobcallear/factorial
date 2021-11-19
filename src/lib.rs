@@ -20,19 +20,15 @@ pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
 /// use factorial::factorial;
 /// use num_bigint::BigUint;
 ///
-/// fn to_big_uint(num: u32) -> BigUint {
-///     BigUint::from(num)
-/// }
-///
-/// assert_eq!(factorial(0), to_big_uint(1));
-/// assert_eq!(factorial(1), to_big_uint(1));
-/// assert_eq!(factorial(10), to_big_uint(3628800));
+/// assert_eq!(factorial(0), BigUint::from(1_u32));
+/// assert_eq!(factorial(1), BigUint::from(1_u32));
+/// assert_eq!(factorial(10), BigUint::from(3628800_u32));
 /// ```
 pub fn factorial(x: u128) -> BigUint {
     if x == 0 {
-        return BigUint::from(1 as u8);
+        return BigUint::from(1_u8);
     }
-    let mut n = BigUint::from(1 as u8);
+    let mut n = BigUint::from(1_u8);
     for i in 2..=x {
         n *= BigUint::from(i);
     }
