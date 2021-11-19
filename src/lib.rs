@@ -16,7 +16,7 @@ pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
 
 pub fn factorial(x: u128) -> BigUint {
     if x == 0 {
-        return BigUint::from(0 as u8);
+        return BigUint::from(1 as u8);
     }
     let mut n = BigUint::from(1 as u8);
     for i in 2..=x {
