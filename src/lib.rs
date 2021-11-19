@@ -14,6 +14,20 @@ pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
     Ok(num)
 }
 
+/// Calculates factorial of a number
+///
+/// ```
+/// use factorial::factorial;
+/// use num_bigint::BigUint;
+///
+/// fn to_big_uint(num: u32) -> BigUint {
+///     BigUint::from(num)
+/// }
+///
+/// assert_eq!(factorial(0), to_big_uint(1));
+/// assert_eq!(factorial(1), to_big_uint(1));
+/// assert_eq!(factorial(10), to_big_uint(3628800));
+/// ```
 pub fn factorial(x: u128) -> BigUint {
     if x == 0 {
         return BigUint::from(1 as u8);
