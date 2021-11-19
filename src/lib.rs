@@ -25,12 +25,8 @@ pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
 /// assert_eq!(factorial(10), BigUint::from(3628800_u32));
 /// ```
 pub fn factorial(num: u128) -> BigUint {
-    if num == 0 {
-        return BigUint::from(1_u8);
+    match num {
+        0 => BigUint::from(1_u8),
+        _ => (2..=num).product(),
     }
-    let mut product = BigUint::from(1_u8);
-    for i in 2..=num {
-        product *= BigUint::from(i);
-    }
-    product
 }
