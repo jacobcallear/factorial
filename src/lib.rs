@@ -20,12 +20,12 @@ pub fn factorial(num: u128) -> BigUint {
 pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
     args.next();
     let error_string = "factorial: missing number operand";
-    let num: u128 = match args.next() {
+
+    match args.next() {
         Some(arg) => match arg.parse() {
-            Ok(num) => num,
-            _ => return Err(error_string),
+            Ok(num) => Ok(num),
+            _ => Err(error_string),
         },
-        _ => return Err(error_string),
-    };
-    Ok(num)
+        _ => Err(error_string),
+    }
 }
