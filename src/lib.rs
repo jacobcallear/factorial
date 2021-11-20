@@ -1,19 +1,6 @@
 use num_bigint::BigUint;
 use std::env;
 
-pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
-    args.next();
-    let error_string = "factorial: missing number operand";
-    let num: u128 = match args.next() {
-        Some(arg) => match arg.parse() {
-            Ok(num) => num,
-            _ => return Err(error_string),
-        },
-        _ => return Err(error_string),
-    };
-    Ok(num)
-}
-
 /// Calculates factorial of a number
 ///
 /// ```
@@ -28,4 +15,17 @@ pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
 /// ```
 pub fn factorial(num: u128) -> BigUint {
     (2..=num).product()
+}
+
+pub fn parse_num(mut args: env::Args) -> Result<u128, &'static str> {
+    args.next();
+    let error_string = "factorial: missing number operand";
+    let num: u128 = match args.next() {
+        Some(arg) => match arg.parse() {
+            Ok(num) => num,
+            _ => return Err(error_string),
+        },
+        _ => return Err(error_string),
+    };
+    Ok(num)
 }
